@@ -1,0 +1,78 @@
+plugin_test: *Dojo()
+name  : basic 0
+sample: 0
+line  : 0
+column: 0
+descri: Descripttion 1
+moveme: kjkji
+-------
+name  : basic 1
+sample: 1
+line  : 3
+column: 4
+descri: Descripttion 2
+moveme: kjkji
+-------
+name  : basic 2
+sample: 2
+line  : 0
+column: 0
+descri: Descripttion 1
+moveme: kjkji
+-------
+name  : basic 3
+sample: 3
+line  : 3
+column: 4
+descri: Descripttion 2
+moveme: kjkji
+-------
+name  : basic 4
+sample: 4
+line  : 0
+column: 0
+descri: Descripttion 1
+moveme: kjkji
+-------
+name  : basic 5
+sample: 5
+line  : 3
+column: 4
+descri: Descripttion 2
+moveme: kjkji
+-------
+name  : basic 6
+sample: 6
+line  : 0
+column: 0
+descri: Descripttion 1
+moveme: kjkji
+-------
+name  : basic 7
+sample: 7
+line  : 3
+column: 4
+descri: Descripttion 2
+moveme: kjkji
+-------
+name  : basic 8
+sample: 8
+line  : 0
+column: 0
+descri: Descripttion 1
+moveme: kjkji
+-------
+name  : basic 9
+sample: 9
+line  : 3
+column: 4
+descri: Descripttion 2
+moveme: kjkji
+-------
+name  : basic 10
+sample: 10
+line  : 0
+column: 0
+descri: Descripttion 1
+moveme: kjkji
+-------

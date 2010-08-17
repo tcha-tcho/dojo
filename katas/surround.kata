@@ -1,0 +1,30 @@
+plugin_test: g:loaded_surround
+name  : surround_1
+sample: 0
+line  : 0
+column: 4
+descri: Descripttion 1
+moveme: kjkji
+-------
+name  : basic 2
+sample: 1
+line  : 3
+column: 4
+descri: Descripttion 2
+moveme: kjkji
+-------
+name  : basic 3
+sample: 0
+line  : 2
+column: 4
+descri: Descripttion 3
+moveme: kjkji
+-------
+name  : basic 4
+sample: 1
+line  : 4
+column: 4
+descri: Descripttion 4
+moveme: kjkji
+-------
+

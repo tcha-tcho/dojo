@@ -1,0 +1,206 @@
+00-filetype: basic
+Public Class StarsProgram
+    Public Shared Sub Main()
+        Dim UserName, Answer, stars As String, NumStars As Integer
+        Console.Write("What is your name: ")
+        UserName = Console.ReadLine()
+        Console.WriteLine("Hello {0}", UserName)
+        Do
+            Console.Write("How many stars do you want: ")
+            NumStars = CInt(Console.ReadLine())
+            stars = New String("*", NumStars)
+            Console.WriteLine(stars)
+            Do
+                Console.Write("Do you want more stars? ")
+                Answer = Console.ReadLine()
+            Loop Until Answer <> ""
+            Answer = Answer.Substring(0, 1)
+        Loop While Answer.ToUpper() = "Y"
+        Console.WriteLine("Goodbye {0}", UserName)
+    End Sub
+End Class
+
+-------
+01-filetype: php
+class Person {
+   public $first;
+   public $last;
+ 
+   public function __construct($f, $l) {
+       $this->first = $f;
+       $this->last = $l;
+   }
+ 
+   public function greeting() {
+       return "Hello, my name is {$this->first} {$this->last}.";
+   }
+ 
+   static public function staticGreeting($first, $last) {
+       return "Hello, my name is {$first} {$last}.";
+   }
+}
+ 
+$him = new Person('John', 'Smith');
+$her = new Person('Sally', 'Davis');
+ 
+echo $him->greeting(); // prints "Hello, my name is John Smith."
+
+-------
+02-filetype: html
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head><title>simple page</title></head>
+  <body>
+    <script type="text/javascript">
+      document.write('Hello World!');
+    </script>
+    <noscript>
+ 
+Your browser either does not support JavaScript, or you have JavaScript turned off.
+    </noscript>
+  </body>
+</html>
+
+-------
+03-filetype: java
+// Hello.java
+import java.io.*;
+import javax.servlet.*;
+ 
+public class Hello extends GenericServlet {
+    public void service(ServletRequest request, ServletResponse response) 
+            throws ServletException, IOException {
+       response.setContentType("text/html");
+       final PrintWriter pw = response.getWriter();
+       pw.println("Hello, world!");
+       pw.close();
+   }
+}
+
+
+-------
+04-filetype: C
+long int SomeFunction();
+/* int OtherFunction(); */
+ 
+/* int */ CallingFunction()
+{
+    long int test1;
+    register /* int */ test2;
+ 
+    test1 = SomeFunction();
+    if (test1 > 0)
+          test2 = 0;
+    else
+          test2 = OtherFunction();
+ 
+    return test2;
+}
+
+-------
+05-filetype: sql
+CREATE TABLE tbl_1(id int);
+  INSERT INTO tbl_1(id) value(1);
+  INSERT INTO tbl_1(id) value(2);
+COMMIT;
+  UPDATE tbl_1 SET id=200 WHERE id=1;
+SAVEPOINT id-1upd;
+  UPDATE tbl_1 SET id=1000 WHERE id=2;
+ROLLBACK TO id-1upd;
+  SELECT id FROM tbl_1;
+
+-------
+06-filetype: perl
+sub Point::new {
+  # Here, Point->new(4, 5) will result in $class being 'Point'.
+  # It's a variable to support subclassing (see the perloop manpage).
+  my ($class, $x, $y) = @_;
+  bless [$x, $y], $class;   # Implicit return
+}
+ 
+sub Point::distance {
+  my ($self, $from) = @_;
+  my ($dx, $dy) = ($$self[0] - $$from[0], $$self[1] - $$from[1]);
+  sqrt($dx * $dx + $dy * $dy);
+}
+
+-------
+07-filetype: asp
+<%
+	Set oConn = Server.CreateObject("ADODB.Connection")
+	oConn.Open "DRIVER={Microsoft Access Driver (*.mdb)}; DBQ=" & Server.MapPath("DB.mdb")
+	Set rsUsers = Server.CreateObject("ADODB.Recordset")
+	rsUsers.Open "SELECT UserID FROM Users", oConn,1,3
+%>
+
+
+-------
+08-filetype: pascal
+program ObjectPascalExample;
+ 
+   type
+      THelloWorld = object
+         procedure Put;
+      end;
+ 
+   var
+      HelloWorld: THelloWorld;
+ 
+   procedure THelloWorld.Put;
+   begin
+      WriteLn('Hello, World!');
+   end;
+ 
+begin
+   New(HelloWorld);
+   HelloWorld.Put;
+   Dispose(HelloWorld);
+end.
+
+-------
+09-filetype: ruby
+class Person
+  attr_reader :name, :age
+  def initialize(name, age)
+    @name, @age = name, age
+  end
+  def <=>(person) # Comparison operator for sorting
+    @age <=> person.age
+  end
+  def to_s
+    "#@name (#@age)"
+  end
+end
+ 
+group = [
+  Person.new("Bob", 33), 
+  Person.new("Chris", 16), 
+  Person.new("Ash", 23) 
+]
+ 
+puts group.sort.reverse
+
+-------
+10-filetype: python
+#!/usr/local/bin/python
+
+import string, sys
+
+# If no arguments were given, print a helpful message
+if len(sys.argv)==1:
+  print 'Usage: celsius temp1 temp2 ...'
+  sys.exit(0)
+
+# Loop over the arguments
+for i in sys.argv[1:]:
+  try: 
+      fahrenheit=float(string.atoi(i))
+  except string.atoi_error:
+  print repr(i), "not a numeric value"
+    else:
+  celsius=(fahrenheit-32)*5.0/9.0
+  print '%i\260F = %i\260C' % (int(fahrenheit), int(celsius+.5))
+
+
+-------
