@@ -44,6 +44,7 @@ fun! ExtractFiles(module)
     endif
   endfor
   if g:kmode == "ninja"
+    if s:NinjaCheck()|return|endif
     call RndmInit()
     let b = sort(g:kata) 
 
@@ -105,7 +106,6 @@ endfunction
 
 "STARTING THE DOJO
 function! GuiStart()
-  if s:SanityCheck()|return|endif
   call ExtractFiles(g:kmodule)
   execute ":silent wincmd n"
   call KataRestart()
@@ -119,15 +119,21 @@ function! GuiStart()
   cmap <buffer> stop call StopDojo()
   cmap <buffer> again call KataRestart()
   cmap <buffer> help call HelpScreen()
+  exe ":only"
+  setlocal bt=nofile
+  setlocal bufhidden=hide
+	setlocal noswapfile
   setlocal report=3
 endfunction
 
 "CHECK IF THE ENVY HAS THE REQUIREMENTS
-fun! s:SanityCheck()
+fun! s:NinjaCheck()
   if !exists("*RndmInit")
     rightb split
     enew
     setlocal bt=nofile
+    setlocal bufhidden=hide
+	  setlocal noswapfile
     put =' '
     put ='Rndm.vim is available at'
     put ='http://mysite.verizon.net/astronaut/vim/index.html#VimFuncs'
@@ -152,7 +158,7 @@ endfunction
 
 "OK I KNOW... BUT NUBES COULD USE THE PLUGIN TO LEARN, SO LETS BE LESS SERIOUS
 function! FirstScreen()
-  normal ggVGd
+  normal ggdG
 
   put = '\"     8888888b.            d8b              \"'
   put = '\"     888  `Y88b           Y8P              \"'
@@ -181,7 +187,7 @@ endfunction
 
 "THIS HELP SCREEN MUST BE IMPROVED. FIRED IN :HELP
 function! HelpScreen()
-  normal ggVGd
+  normal ggdG
   put = 'HELP??'
   put = '\"to back just back to normal mode\"'
   put = 'to stop: dojo \":stop\"'
@@ -235,7 +241,7 @@ endfunction
 "WRITE THE MAIN WINDOW
 function! WriteDojoWindow(from_error, finish)
   let g:time_total += g:sec
-  normal ggVGd
+  normal ggdG
   put = 'DOJO! FOR VIM: '.g:kmode.' mode'
   put = a:finish == 1 ? '  ' : DrawProgress()
   put = '  '
@@ -310,7 +316,8 @@ endfunction
 
 "SOME HELP FUNCTIONS
 function! StopRecording()
-  normal qˆ]
+  normal q
+  " normal qˆ]
 endfunction
 
 function! StartRecording()
