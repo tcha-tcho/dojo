@@ -74,8 +74,6 @@ function! ParseFile(text,type)
     if strpart(line,0,13) == "plugin_test: "
       if !exists(strpart(line,13))
         return [] "Flagged
-      else
-        stop
       endif
     elseif line == '-------'
       let l:count = 0
