@@ -11,7 +11,7 @@
 "to prepare a text to vim site
 "to publish the plugin and start another
 
- " DechoOn
+ DechoOn
 "CONFIGURATION
 let g:kmode = "practice" "kmode: practice, samurai, ninja
 let g:kmodule = "all_katas" "kmodule: what module you want to try (basic.kata)
@@ -216,15 +216,17 @@ endfunction
 function! MovementStop()
   call StopRecording()
   if g:first_move == 0
-    let g:kesc = escape(@a,'\')
+    let g:kesc = escape(@a,'\\')
     call MovementStart(1)
     let g:first_move = 1
   else
     let g:sec = reltime()[0] - g:start_writing_time
     let g:time_partial = 0
-    "FIXME: the <esc> is in the chainning commands...
     let l:movement = substitute(escape(@a,'\'),g:kesc,"","g")
-    if l:movement == g:kata[g:count_sequence][5]
+    "FIXME: the <esc> is in the chainning commands...
+    "FIXME: the comparisson is broken... it seem to stop working in the new VIM
+    " if l:movement == g:kata[g:count_sequence][5].g:kesc
+    if 1 == 1 "fuck 
       if g:count_sequence == g:count_movements-1
         call WriteDojoWindow(0,1)
       else
