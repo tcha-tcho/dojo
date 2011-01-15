@@ -351,4 +351,3 @@ function! DrawProgress()
 endfunction
 
 cmap dojo call Dojo()
-call Dojo()
